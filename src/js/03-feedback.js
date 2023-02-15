@@ -20,10 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 function pushToLocalStorage(){
-    localStorage.setItem('email', email.value)
-    console.log(localStorage.getItem('email'));
-    localStorage.setItem('message', message.value)
-    console.log(localStorage.getItem('message'));
+    obj.email = email.value;
+    obj.message = message.value
+    localStorage.setItem('feedback-form-state', JSON.stringify(obj))
 }
 
 let timeout = throttle(pushToLocalStorage, 500)
@@ -33,10 +32,6 @@ message.addEventListener('input', timeout)
 
 form.addEventListener('submit', function(event){
     event.preventDefault()
-    obj.email = localStorage.getItem('email')
-    obj.message = localStorage.getItem('message')
-    console.log(obj);
-    localStorage.setItem('email', '')
-    localStorage.setItem('message', '')
+    console.log(localStorage.getItem('feedback-form-state'));
     form.reset()
 })

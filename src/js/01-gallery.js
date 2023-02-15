@@ -10,11 +10,11 @@ let itemList = "";
 
 
 galleryItems.forEach(({ preview, original, description }) => {
-    itemList += `<li class="gallery__item">
-    <a class="gallery__item" href="${original}">
+    itemList += `<div class="gallery__item">
+    <a class="gallery__link" href="${original}">
     <img class="gallery__image" src="${preview}" alt="${description}" />
   </a>
-      </li>`;
+      </div>`;
   });
   document.querySelector(".gallery").innerHTML = itemList;
   
